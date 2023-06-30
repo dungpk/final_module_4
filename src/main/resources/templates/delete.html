@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">>
+<head>
+    <meta charset="UTF-8">
+    <title>Delete City</title>
+</head>
+<body>
+
+<a href ="list/city">List of Cities</a>
+<h2>Delete City</h2>
+
+<h4 style="color: orange">Do you really want to delete it?</h4>
+<form action="/city/delete" method="post">
+
+  <table border = "1" cellpadding="10" th:object="${city}">
+
+  <tr>
+    <input type="hidden" th:field="*{id}">
+    <input type="hidden" th:field="*{country.id}">
+    <td>Name</td>
+    <td>
+      <input type="text" readonly="readonly" th:field="*{name}">
+    </td>
+  </tr>
+
+    <tr>
+      <td>Country</td>
+      <td>
+        <input type = "text" readonly="readonly" th:field="*{country.name}">
+      </td>
+    </tr>
+
+    <tr>
+      <td>Area</td>
+      <td>
+        <input type = "number" readonly="readonly" th:field="*{totalArea}">
+      </td>
+    </tr>
+
+    <tr>
+      <td>Area</td>
+      <td>
+        <input type = "number" readonly="readonly" th:field="*{population}">
+      </td>
+    </tr>
+
+    <tr>
+      <td>GDP</td>
+      <td>
+        <input type="number" readonly="readonly" th:field="*{gdp}">
+      </td>
+    </tr>
+
+    <tr>
+    <tr>
+      <td>Description</td>
+      <td>
+        <textarea type="number" readonly="readonly" th:field="*{gdp}"></textarea>
+      </td>
+    </tr>
+    <tr>
+    <tr>
+      <td>
+        <input type="submit" value="DELETE">
+      </td>
+    </tr>
+
+  </table>
+</form>
+<a href="/city/list">Exit</a>
+</body>
+</html>

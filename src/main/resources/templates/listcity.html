@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>List of City</title>
+</head>
+<body>
+
+<h2>List of Cities</h2>
+<th:block th:if="${message}">
+  <h4 th:text="${message}" style="color: green; font-weight: bolder"></h4>
+</th:block>
+<a href="/city/create">Create City</a>
+<table border="1" cellpadding="10">
+  <tr>
+    <th>STT</th>
+    <th>City</th>
+    <th>Country</th>
+    <th>Edit</th>
+    <th>Delete</th>
+  </tr>
+  <th:block th:each="city : ${cities}">
+    <tr>
+      <td th:text="${city.getId()}"></td>
+      <td>
+        <a th:href="@{/city/detail/__${city.getId()}__}"><p th:text="${city.getName()}"></p></a>
+      </td>
+      <td th:text="${city.getCountry().getName()}"></td>
+      <td>
+        <a th:href="@{/city/edit/__${city.getId()}__}" class="btn-secondary">Edit</a>
+      </td>
+      <td>
+        <a th:href="@{/city/delete/__${city.getId()}__}" class="btn-danger">Delete</a>
+      </td>
+
+    </tr>
+  </th:block>
+</table>
+
+</body>
+</html>
